@@ -13,7 +13,7 @@ function App() {
   }
   return (
     <>
-      <h1 className='bg-green-200 text-black p-4 rounded-xl'>HaanJi</h1>
+      <h1 className='bg-orange-200 text-black p-4 rounded-xl text-4xl'>HaanJi</h1>
       <Card userInfo={cardDetails}/>
     </>
   )
