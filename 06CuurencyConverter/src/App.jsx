@@ -4,22 +4,25 @@ import useCurrencyInfo from '../Hooks/currencyInfo'
 
 export default function App() {
     const [ammount,setAmmount] = useState(0)
+    const [convertedAmmount,setConvertedAmmount] = useState(0)
+
     const [from,setFrom] = useState("usd")
     const [to,setTo] = useState("inr")
-    const [convertedAmmount,setConvertedAmmount] = useState(0)
 
     const currencyInfo = useCurrencyInfo(from)
 
-    const options = Object.keys(currencyInfo)
+    const options = Object.keys(currencyInfo) //extracting keys
 
     const swap= ()=>{
         setFrom(to)
         setTo(from)
     }
+
     const convert = ()=>{
         setConvertedAmmount(ammount * currencyInfo[to])
 
     }
+
     return (
         <div
             className="w-full h-screen flex flex-wrap justify-center items-center bg-cover bg-no-repeat"
@@ -33,7 +36,6 @@ export default function App() {
                         onSubmit={(e) => {
                             e.preventDefault();
                             convert()
-                           
                         }}
                     >
                         <div className="w-full mb-1">
@@ -41,7 +43,7 @@ export default function App() {
                                 label="From"
                                 amount={ammount}
                                 currencyOptions={options}
-                                onCurrencyChange={(currency) => setAmmount(ammount)}
+                                onCurrencyChange={(currency) => setFrom(currency)}
                                 selectCurrency={from}
                                 onAmountChange={(ammount) => setAmmount(ammount)}
                             />

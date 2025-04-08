@@ -39,7 +39,7 @@ export default function Input({
                 >
                     
                         {currencyOptions.map((currency) => (
-                            <option key={currency} value={currency}>    //remember key in loop
+                            <option key={currency} value={currency}>    //remember key in loop whenever u use loop in jsx beeter to have a key 
                             {currency}
                             </option>
                         ))}
